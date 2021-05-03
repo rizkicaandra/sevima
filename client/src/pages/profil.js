@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchProfilPictureData } from '../store/action'
 import DisplayPost from "../components/displayPost"
+import Navbar from '../components/navbar'
 
 export default function Profil(){
   const dispatch = useDispatch()
@@ -13,6 +14,7 @@ export default function Profil(){
 
   return(
     <>
+      <Navbar></Navbar>
       <div className="container set-top">
         <div className="row">
           <div className="col set-padding-usericon">
@@ -20,11 +22,9 @@ export default function Profil(){
           </div>
           <div className="col" style={{paddingLeft: "7em", paddingTop: "1em"}}>
             <div>
-              <h2 style={{fontSize: "35px"}}>My Name Is</h2>
+              <h2 style={{fontSize: "35px"}}>{ localStorage.nama}</h2>
             </div>
             <div className="d-flex">
-              <h3 style={{paddingRight: "5px", paddingTop: "1.8em", color: "black"}}>100</h3>
-              <h3 style={{paddingRight: "2.5em", paddingTop: "1.8em", color: "grey"}}>Posts</h3>
               <h3 style={{paddingRight: "5px", paddingTop: "1.8em", color: "black"}}>1304</h3>
               <h3 style={{paddingRight: "2.5em", paddingTop: "1.8em", color: "grey"}}>Followers</h3>
               <h3 style={{paddingRight: "5px", paddingTop: "1.8em", color: "black"}}>1502</h3>

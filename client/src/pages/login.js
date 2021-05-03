@@ -3,19 +3,21 @@ import { useDispatch } from "react-redux"
 import { loginUser } from "../store/action"
 import { useHistory } from 'react-router-dom'
 import { Link } from "react-router-dom";
+import { setNavbarStatus } from '../store/action' 
 
 export default function Login () {
   const dispatch = useDispatch()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const history = useHistory()
-
+  
   const loginToInsta = (e) => {
     e.preventDefault()
     dispatch(loginUser(email, password))
 
     setEmail('')
     setPassword('')
+    dispatch(setNavbarStatus(true))
 
     history.push('/beranda')
   }
@@ -24,7 +26,7 @@ export default function Login () {
     if(localStorage.getItem("access_token")){
       history.push('/beranda')
     }
-  })
+  },[localStorage])
 
   return(
     <>

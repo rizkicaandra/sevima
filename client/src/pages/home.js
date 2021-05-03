@@ -1,19 +1,19 @@
 import { useEffect} from "react"
-import { useHistory } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import DisplayPost from "../components/displayPost"
 import { fetchAllDataPicture } from "../store/action"
+import Navbar from '../components/navbar'
 
 export default function Home(){
-  const history = useHistory()
   const dispatch = useDispatch()
   const allDataPicutre = useSelector(state => state.post.allPost)
+  const loadingLogin = useSelector(state => state.post.loadingLogin)
 
-  useEffect(() => {
-    if(!localStorage.getItem("access_token")){
-      history.push('/login')
-    }
-  })
+  // useEffect(() => {
+  //   if(!localStorage.getItem("access_token")){
+  //     history.push('/login')
+  //   }
+  // },[])
 
   useEffect(()=> {
     dispatch(fetchAllDataPicture())
@@ -21,9 +21,13 @@ export default function Home(){
 
   return(
     <>
-      <div className="container" style={{paddingTop: "5em"}}>
+      <Navbar></Navbar>
+      {
+        loadingLogin ? <lottie-player src="https://assets1.lottiefiles.com/private_files/lf30_KTzaOr.json"  background="transparent"  speed="1"  style={{width: "700px", height: "700px", margin: "auto"}}  loop  autoplay></lottie-player> :
+        <div className="container" style={{paddingTop: "5em"}}>
         <DisplayPost data={allDataPicutre} />
       </div>
+      }
     </>
   )
 }

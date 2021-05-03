@@ -45,6 +45,7 @@ class PostController{
   static showAllPost(req, res, next){
 
     Post.findAll({
+      order:[['id','DESC']],
       include:[{
         model: Comment
       },{
@@ -66,11 +67,12 @@ class PostController{
       where:{
         UserId: req.user.id
       },
+      order:[['id','DESC']],
       include:[{
         model: Comment
       },{
         model: Like
-      }]
+      }],
     })
     .then( allPost => {
       res.status(200).json(allPost)

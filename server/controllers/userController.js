@@ -44,7 +44,7 @@ class UserController{
         email: user.email,
         nama: user.nama
       })
-      res.status(200).json({ access_token })
+      res.status(200).json({ access_token, nama: user.nama })
     })
     .catch( err => {
       err.from = 'userController - login'

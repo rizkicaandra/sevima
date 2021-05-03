@@ -5,7 +5,9 @@ const initialState = {
   allPost: [],
   loadingDetailPost: false,
   detailPost: [],
-  statusLike: false
+  statusLike: false,
+  loadingLogin: false,
+  navbarStatus: false
 }
 
 function reducer(state = initialState, actions){
@@ -26,6 +28,10 @@ function reducer(state = initialState, actions){
       return { ...state, detailPost: payload}
     case 'STATUSLIKE/SETSTATUSLIKE':
       return { ...state, statusLike: payload}
+    case 'LOADINGLOGIN/SETLOADINGLOGIN':
+      return { ...state, loadingLogin: payload}
+    case 'NAVBARSTATUS/SETNAVBARSTATUS' :
+      return { ...state, navbarStatus: payload}
     default :
       return state
   }

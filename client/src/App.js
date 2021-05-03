@@ -2,7 +2,7 @@ import './App.css';
 import Login from './pages/login'
 import Home from './pages/home'
 import Register from './pages/register'
-import Navbar from './components/navbar'
+
 import Profil from './pages/profil'
 import Post from './pages/post'
 import DetailPost from './pages/detailpost'
@@ -12,11 +12,9 @@ import {
 } from "react-router-dom"
 
 function App() {
+
   return (
     <>
-    {
-      localStorage.getItem("access_token") ? <Navbar></Navbar> : ""
-    }
     <Switch>
       <Route path="/detailpost/:id">
         <DetailPost />
