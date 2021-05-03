@@ -6,6 +6,7 @@ const express = require('express')
 const cors = require('cors')
 const routes = require('./routes/index')
 const errorHandler = require('./middlewares/errorHandler')
+const fileUpload = require('express-fileupload')
 const app = express()
 const PORT = 4500
 
@@ -15,6 +16,9 @@ app.use(cors())
 // body parser
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
+
+// file upload
+app.use(fileUpload())
 
 // routes
 app.use('/', routes)

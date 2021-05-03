@@ -15,7 +15,30 @@ class LikeController{
         err.from = 'likeController - addLike'
         next(err)
       })
+  }
 
+  static destroyLike(req, res, next){
+
+    Like.destroy({
+      where:{
+        id: +req.params.id
+      }
+    })
+    .then( response => {
+      if(!response){
+        throw {
+          name : 'Custom_Error',
+          message : 'Error Not Found',
+          status : 404
+        }
+      } else {
+        res.status(200).send({ message: 'Data like is succesfully deleted'})
+      }
+    })
+    .catch( err => {
+      err.from = 'Like Controller - Delete Banner'
+      next(err)
+    })
   }
 }
 

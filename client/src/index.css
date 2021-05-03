@@ -95,12 +95,93 @@ html
   padding-top: 5%;
 }
 
-.fa-user-circle{
+.user-icon{
   font-size: 23em;
   color: #6a6969d0;
 }
 
+.detail-user-icon{
+  font-size: 5em;
+}
 
+.overlay{
+  position: absolute;
+  top:50%;
+  left:51.5%;
+  background-color: rgba(240, 128, 128, 0.398);
+  height: 94%;
+  width: 96%;
+  opacity: 0;
+  transition: .75s ease;
+}
+
+.ctr{
+  position: absolute;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  -moz-transform: translate(-50%,-50%);
+  padding-top: 47%;
+}
+
+.imghover:hover .overlay{
+  opacity: 1;
+}
+
+.display-detail-picture{
+  padding-left: 40em;
+}
+
+.comment-display{
+  display: inline;
+  padding-left: 4em;
+  width: 60%;
+}
+
+.profile-detail-data{
+  padding-left: 2%;
+  width: 100%;
+  padding-top: 1.5%;
+}
+
+.block-1{
+  height: 13%;
+  width: 100%;
+}
+
+.block-2{
+  height: 77%;
+  width: 100%;
+  overflow:auto;
+}
+
+.block-3{
+  height: 10%;
+  width: 100%;
+}
+
+.fa-heart{
+  font-size: 2em;
+  padding-bottom: 1%;
+  padding-right: 1%;
+}
+
+.unlike-post{
+  cursor: pointer;
+}
+
+.unlike-post:hover{
+  color: black !important;
+}
+
+.like-post{
+  cursor: pointer;
+}
+
+.like-post:hover{
+  color: rgba(232, 71, 71, 0.905);
+}
 
 /*link styling*/
 a

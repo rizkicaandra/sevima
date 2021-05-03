@@ -4,6 +4,8 @@ import Home from './pages/home'
 import Register from './pages/register'
 import Navbar from './components/navbar'
 import Profil from './pages/profil'
+import Post from './pages/post'
+import DetailPost from './pages/detailpost'
 import {
   Switch,
   Route
@@ -16,6 +18,9 @@ function App() {
       localStorage.getItem("access_token") ? <Navbar></Navbar> : ""
     }
     <Switch>
+      <Route path="/detailpost/:id">
+        <DetailPost />
+      </Route>
       <Route path="/beranda">
         <Home />
       </Route>
@@ -27,6 +32,9 @@ function App() {
       </Route>
       <Route path="/login">
         <Login />
+      </Route>
+      <Route path="/post">
+        <Post />
       </Route>
       <Route path="/">
         <Home />

@@ -10,8 +10,8 @@ export default function Navbar(){
           <Link to="/beranda" style={{textDecoration: "none"}}> <span className="header-logo"> INSTA APP </span> </Link>
         </div>
         <div className="mr-5 set-navbar-link">
-          <Link to="/post" style={{textDecoration: "none"}}><i class="fas fa-camera"></i></Link>
-          <Link to="/profil" style={{textDecoration: "none"}}><i class="fas fa-user"></i></Link>
+          <Link to="/post" style={{textDecoration: "none"}}><i className="fas fa-camera"></i></Link>
+          <Link to="/profil" style={{textDecoration: "none"}}><i className="fas fa-user"></i></Link>
         </div>
       </nav>
     </>
