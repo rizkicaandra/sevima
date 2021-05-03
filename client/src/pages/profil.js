@@ -1,11 +1,22 @@
+import { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { fetchProfilPictureData } from '../store/action'
+import DisplayPost from "../components/displayPost"
 
 export default function Profil(){
+  const dispatch = useDispatch()
+  const profilPictureData = useSelector(state => state.post.post)
+
+  useEffect(()=> {
+    dispatch(fetchProfilPictureData())
+  }, [dispatch])
+
   return(
     <>
       <div className="container set-top">
         <div className="row">
           <div className="col set-padding-usericon">
-            <i class="fas fa-user-circle"></i>
+            <i class="fas fa-user-circle user-icon"></i>
           </div>
           <div className="col" style={{paddingLeft: "7em", paddingTop: "1em"}}>
             <div>
@@ -26,13 +37,7 @@ export default function Profil(){
           <div className="col">
           </div>
         </div>
-        <div className="row d-flex" style={{paddingTop: "4em"}}>
-          <div className="col-md-4" style={{padding: "1em"}}><img src={"https://images.unsplash.com/photo-1594199544800-2d77ff671a58?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"} width={"300"} height={"300"} alt="foto"></img></div>
-          <div className="col-md-4" style={{padding: "1em"}}><img src={"https://images.unsplash.com/photo-1594199544800-2d77ff671a58?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"} width={"300"} height={"300"} alt="foto"></img></div>
-          <div className="col-md-4" style={{padding: "1em"}}><img src={"https://images.unsplash.com/photo-1594199544800-2d77ff671a58?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"} width={"300"} height={"300"} alt="foto"></img></div>
-          <div className="col-md-4" style={{padding: "1em"}}><img src={"https://images.unsplash.com/photo-1594199544800-2d77ff671a58?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"} width={"300"} height={"300"} alt="foto"></img></div>
-          <div className="col-md-4" style={{padding: "1em"}}><img src={"https://images.unsplash.com/photo-1594199544800-2d77ff671a58?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"} width={"300"} height={"300"} alt="foto"></img></div>
-          </div>
+        <DisplayPost data={profilPictureData}></DisplayPost>
       </div>
     </>
   )
