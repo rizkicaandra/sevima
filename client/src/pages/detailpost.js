@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchDetailPost, addComment, fetchStatusLike, likePosting, unlikePosting } from '../store/action'
+import Navbar from '../components/navbar'
 import Comments from '../components/comments'
 
 export default function DetailPost(){
@@ -38,6 +39,7 @@ export default function DetailPost(){
 
   return(
     <>
+      <Navbar></Navbar>
       {
         loadingDetail ? <p>loading</p> :
         <div className="display-detail-picture" style={{paddingTop: "10em"}}>
@@ -61,6 +63,7 @@ export default function DetailPost(){
             <div className="block-3">
               <div className="d-flex">
                 {
+                  loadingDetail ? <p>loading</p> :
                   statusLike.status ? <i className="fas fa-heart unlike-post" style={{color: "rgba(232, 71, 71, 0.905)"}} onClick={dislikePost}></i> : <i className="fas fa-heart like-post" onClick={likePost}></i>
                 }
                 <h5>{ detailPost.Likes.length }</h5>

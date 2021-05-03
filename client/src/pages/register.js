@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux"
 import { useHistory } from 'react-router-dom'
 import { useState, useEffect} from "react"
 import { registerUser } from "../store/action"
+import Swal from 'sweetalert2'
 
 export default function Login () {
   const dispatch = useDispatch()
@@ -24,6 +25,12 @@ export default function Login () {
     setNama('')
     setEmail('')
     setPassword('')
+
+    Swal.fire(
+      'Good job!',
+      'You successfully registered!',
+      'success'
+    )
 
     history.push('/login')
   }

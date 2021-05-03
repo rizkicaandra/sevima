@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux"
 import { postPictures } from "../store/action"
 import { addPostData } from "../store/action"
 import { useHistory } from 'react-router-dom'
+import Navbar from '../components/navbar'
 
 export default function PostPicture(){
   const dispatch = useDispatch()
@@ -37,6 +38,7 @@ export default function PostPicture(){
 
   return(
     <>
+      <Navbar></Navbar>
       <div className="container mt-4" style={{paddingTop: "8em"}}>
         <h4 className="display-4 text-center mb-4">POST YOUR MOMENT</h4>
       </div>

@@ -29,15 +29,26 @@ export function setStatusLike(payload){
   return { type: 'STATUSLIKE/SETSTATUSLIKE', payload}
 }
 
+export function setLoadingLogin(payload){
+  return { type: 'LOADINGLOGIN/SETLOADINGLOGIN', payload}
+}
+
+export function setNavbarStatus(payload){
+  return { type: 'NAVBARSTATUS/SETNAVBARSTATUS', payload}
+}
+
 export function loginUser(email, password){
   return async (dispatch) => {
     try {
+      dispatch(setLoadingLogin(true))
       const response = await axios.post(BASEURL + 'users/login',{
         email,
         password
       })
 
       localStorage.setItem("access_token", response.data.access_token)
+      localStorage.setItem("nama", response.data.nama)
+      dispatch(setLoadingLogin(false))
     } catch (error) {
       console.log(error)
     }
@@ -69,8 +80,6 @@ export function postPictures(payload){
           'access_token': localStorage.getItem("access_token")
         }
       })
-
-      console.log(response) 
     } catch (error) {
       console.log(error);
     }

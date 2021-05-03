@@ -91,6 +91,17 @@ html
   color: rgba(232, 71, 71, 0.905);
 }
 
+.fa-sign-out-alt{
+  color: #262626;
+  font-size: x-large;
+  margin-left: 1.5em;
+  cursor: pointer;
+}
+
+.fa-sign-out-alt:hover{
+  color: rgba(232, 71, 71, 0.905);
+}
+
 .set-top{
   padding-top: 5%;
 }
