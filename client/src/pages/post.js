@@ -1,7 +1,7 @@
 import { useState} from "react"
 import { useDispatch } from "react-redux"
 import { postPictures } from "../store/action"
-import { addPostData } from "../store/action"
+import { addPostData, fetchAllDataPicture } from "../store/action"
 import { useHistory } from 'react-router-dom'
 import Navbar from '../components/navbar'
 
@@ -28,6 +28,7 @@ export default function PostPicture(){
 
     dispatch(postPictures(formData))
     dispatch(addPostData({imageName: fileName, text}))
+    dispatch(fetchAllDataPicture())
 
     setFile('')
     setFileName('')

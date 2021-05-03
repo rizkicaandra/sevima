@@ -8,12 +8,7 @@ export default function Home(){
   const dispatch = useDispatch()
   const allDataPicutre = useSelector(state => state.post.allPost)
   const loadingLogin = useSelector(state => state.post.loadingLogin)
-
-  // useEffect(() => {
-  //   if(!localStorage.getItem("access_token")){
-  //     history.push('/login')
-  //   }
-  // },[])
+  const loadingAllData = useSelector(state => state.post.loadingAllData)
 
   useEffect(()=> {
     dispatch(fetchAllDataPicture())
@@ -23,7 +18,7 @@ export default function Home(){
     <>
       <Navbar></Navbar>
       {
-        loadingLogin ? <lottie-player src="https://assets1.lottiefiles.com/private_files/lf30_KTzaOr.json"  background="transparent"  speed="1"  style={{width: "700px", height: "700px", margin: "auto"}}  loop  autoplay></lottie-player> :
+        loadingLogin || loadingAllData  ? <lottie-player src="https://assets1.lottiefiles.com/private_files/lf30_KTzaOr.json"  background="transparent"  speed="1"  style={{width: "700px", height: "700px", margin: "auto"}}  loop  autoplay></lottie-player> :
         <div className="container" style={{paddingTop: "5em"}}>
         <DisplayPost data={allDataPicutre} />
       </div>
